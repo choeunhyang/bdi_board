@@ -3,7 +3,6 @@ package com.board.bdi.common;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.beanutils.BeanAccessLanguageException;
 import org.apache.commons.beanutils.BeanUtils;
 
 public class ParseUtil {
