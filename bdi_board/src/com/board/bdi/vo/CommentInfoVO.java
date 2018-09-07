@@ -21,10 +21,10 @@ public class CommentInfoVO implements Serializable {
 	private String citext;
 
 	/** 댓글등록일. */
-	private Date cicredat;
+	private String cicredat;
 
 	/** 댓글수정일. */
-	private Date cimoddat;
+	private String cimoddat;
 
 	/** 새 테이블. */
 	private UserInfoVO userInfo;
@@ -76,42 +76,20 @@ public class CommentInfoVO implements Serializable {
 		return this.citext;
 	}
 
-	/**
-	 * 댓글등록일을 설정합니다..
-	 * 
-	 * @param cicredat
-	 *            댓글등록일
-	 */
-	public void setCicredat(Date cicredat) {
+	public String getCicredat() {
+		return cicredat;
+	}
+
+	public void setCicredat(String cicredat) {
 		this.cicredat = cicredat;
 	}
 
-	/**
-	 * 댓글등록일을 가져옵니다..
-	 * 
-	 * @return 댓글등록일
-	 */
-	public Date getCicredat() {
-		return this.cicredat;
+	public String getCimoddat() {
+		return cimoddat;
 	}
 
-	/**
-	 * 댓글수정일을 설정합니다..
-	 * 
-	 * @param cimoddat
-	 *            댓글수정일
-	 */
-	public void setCimoddat(Date cimoddat) {
+	public void setCimoddat(String cimoddat) {
 		this.cimoddat = cimoddat;
-	}
-
-	/**
-	 * 댓글수정일을 가져옵니다..
-	 * 
-	 * @return 댓글수정일
-	 */
-	public Date getCimoddat() {
-		return this.cimoddat;
 	}
 
 	/**
@@ -187,5 +165,11 @@ public class CommentInfoVO implements Serializable {
 		}
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "CommentInfoVO [cinum=" + cinum + ", citext=" + citext + ", cicredat=" + cicredat + ", cimoddat="
+				+ cimoddat + ", userInfo=" + userInfo + ", boardInfo=" + boardInfo + "]";
+	} 
 
 }

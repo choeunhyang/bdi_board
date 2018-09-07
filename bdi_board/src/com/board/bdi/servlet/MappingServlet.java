@@ -34,7 +34,7 @@ public class MappingServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map<String,String[]> params = request.getParameterMap();
+//		Map<String,String[]> params = request.getParameterMap();
 		CommentInfoVO ci = ParseUtil.parseRequest(request, CommentInfoVO.class);
 		System.out.println(ci);
 //		CommentInfoVo ci = new CommentInfoVo();

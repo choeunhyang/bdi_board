@@ -26,6 +26,7 @@ public class DBCon {
 			try {
 				Class.forName(prop.getProperty("driver"));
 				con = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("id"), prop.getProperty("pwd"));
+				con.setAutoCommit(false);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
@@ -46,5 +47,20 @@ public class DBCon {
 	public static void main(String[] args) {
 		getCon();
 		close();
+	}
+	
+	public static void commit() {
+		try {
+			con.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void rollback() {
+		try {
+			con.rollback();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

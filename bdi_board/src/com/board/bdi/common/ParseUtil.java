@@ -3,11 +3,13 @@ package com.board.bdi.common;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
+//import org.apache.catalina.filters.SetCharacterEncodingFilter; // web.xml에 사용
 import org.apache.commons.beanutils.BeanUtils;
 
 public class ParseUtil {
 
 	public static <T> T parseRequest(HttpServletRequest request, Class<T> clazz) throws ServletException{
+//		SetCharacterEncodingFilter //web.xml에 사용
 		T t = null;
 		try {
 			t = (T)clazz.newInstance();
@@ -17,4 +19,5 @@ public class ParseUtil {
 		}
 		return t;
 	}
+
 }
