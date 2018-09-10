@@ -29,10 +29,10 @@ public class BoardInfoVO implements Serializable {
 	private String bifile;
 
 	/** 게시판등록일자. */
-	private Date bicredate;
+	private String bicredate;
 
 	/** 게시판수정일자. */
-	private Date bimoddat;
+	private String bimoddat;
 
 	/** 게시판조회수. */
 	private Integer bicnt;
@@ -135,7 +135,7 @@ public class BoardInfoVO implements Serializable {
 	 * @param bicredate
 	 *            게시판등록일자
 	 */
-	public void setBicredate(Date bicredate) {
+	public void setBicredate(String bicredate) {
 		this.bicredate = bicredate;
 	}
 
@@ -144,7 +144,7 @@ public class BoardInfoVO implements Serializable {
 	 * 
 	 * @return 게시판등록일자
 	 */
-	public Date getBicredate() {
+	public String getBicredate() {
 		return this.bicredate;
 	}
 
@@ -154,7 +154,7 @@ public class BoardInfoVO implements Serializable {
 	 * @param bimoddat
 	 *            게시판수정일자
 	 */
-	public void setBimoddat(Date bimoddat) {
+	public void setBimoddat(String bimoddat) {
 		this.bimoddat = bimoddat;
 	}
 
@@ -163,7 +163,7 @@ public class BoardInfoVO implements Serializable {
 	 * 
 	 * @return 게시판수정일자
 	 */
-	public Date getBimoddat() {
+	public String getBimoddat() {
 		return this.bimoddat;
 	}
 

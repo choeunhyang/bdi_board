@@ -23,7 +23,17 @@ public class UserServlet extends HttpServlet {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		uri = "/views" + request.getRequestURI();
+		String cmd = uri.substring(uri.lastIndexOf("/")+1);
+		try {
+			if(cmd.equals("userLogout")) {
+				us.logoutUser(request);
+				uri = "/views/user/userLogin";
+			}
+		}catch(SQLException e) {
+			throw new ServletException("에러 : " + e.getMessage());
+		}
+		doService(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,6 +44,8 @@ public class UserServlet extends HttpServlet {
 				/*UserInfoVO ui = ParseUtil.parseRequest(request, UserInfoVO.class);
 				System.out.println(ui);*/
 				us.joinUser(request);
+			}else if(cmd.equals("userLogin")) {
+				us.loginUser(request);
 			}
 		}catch(SQLException e) {
 			throw new ServletException("에러 : " + e.getMessage());

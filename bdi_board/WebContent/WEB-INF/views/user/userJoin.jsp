@@ -7,6 +7,12 @@
 		//TODO 로그인 페이지로 이동
 	</script>
 </c:if>
+<c:if test="${!empty err}">
+	<script>
+		alert("${err}");
+		//TODO 로그인 페이지로 이동
+	</script>
+</c:if>
 	<article class="container">
 		<div class="page-header">
 			<div class="col-md-6 col-md-offset-3">

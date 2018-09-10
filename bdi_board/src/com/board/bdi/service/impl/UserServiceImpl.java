@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.board.bdi.common.DBCon;
 import com.board.bdi.common.ParseUtil;
@@ -27,7 +28,8 @@ public class UserServiceImpl implements UserService {
 				request.setAttribute("cnt", cnt);
 				DBCon.commit();
 			} else {
-				throw new ServletException("아이디 이미 있음.");
+				request.setAttribute("err", "아이디 중복 됬다고!!");
+//				throw new ServletException("아이디 이미 있음.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -37,25 +39,45 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void loginUser(HttpServletRequest request) throws SQLException {
+	public void loginUser(HttpServletRequest request) throws SQLException, ServletException {
+		UserInfoVO ui = ParseUtil.parseRequest(request, UserInfoVO.class);
+		udao.setCon(DBCon.getCon());
+		try {
+			UserInfoVO rUi = udao.selectUser(ui);
+			if (rUi != null) {
+				if(rUi.getUipwd().equals(ui.getUipwd())) {
+					HttpSession hs = request.getSession();
+					hs.setAttribute("user", rUi);
+					request.setAttribute("msg", rUi.getUiname() + "님 환영합니다.");
+				}else {
+					request.setAttribute("err", "비밀번호를 확인해주세요.");
+				}
+			} else {
+				request.setAttribute("err", "아이디를 확인해주세요.");
+			}
+		} catch (SQLException e) {
+			DBCon.rollback();
+			e.printStackTrace();
+		} finally {
+			DBCon.close();
+		}
+	}
+
+	@Override
+	public void logoutUser(HttpServletRequest request) throws SQLException, ServletException {
+		HttpSession hs = request.getSession();
+		hs.invalidate();
+
+	}
+
+	@Override
+	public void deleteUser(HttpServletRequest request) throws SQLException, ServletException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void logoutUser(HttpServletRequest request) throws SQLException {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteUser(HttpServletRequest request) throws SQLException {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void userList(HttpServletRequest request) throws SQLException {
+	public void userList(HttpServletRequest request) throws SQLException, ServletException {
 		// TODO Auto-generated method stub
 
 	}

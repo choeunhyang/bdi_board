@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface UserService {
 	public void joinUser(HttpServletRequest request) throws SQLException, ServletException;
-	public void loginUser(HttpServletRequest request) throws SQLException;
-	public void logoutUser(HttpServletRequest request) throws SQLException;
-	public void deleteUser(HttpServletRequest request) throws SQLException;
-	public void userList(HttpServletRequest request) throws SQLException;
+	public void loginUser(HttpServletRequest request) throws SQLException, ServletException;
+	public void logoutUser(HttpServletRequest request) throws SQLException, ServletException;
+	public void deleteUser(HttpServletRequest request) throws SQLException, ServletException;
+	public void userList(HttpServletRequest request) throws SQLException, ServletException;
 }
