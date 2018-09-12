@@ -29,11 +29,11 @@
 					<input type="password" class="form-control" id="uipwd" name="uipwd" required placeholder="비밀번호를 입력해주세요">
 				</div>
 				<div class="form-group text-center">
-					<button type="submit" class="btn btn-warning">
+					<button type="submit" id="join-submit" class="btn btn-primary">
 						로그인<i class="fa fa-times spaceLeft"></i>
 					</button>
-					<button data-page="/views/user/userJoin" class="btn btn-warning">
-						회원가입<i class="fa fa-times spaceLeft"></i>
+					<button data-page="/views/user/userJoin" class="btn btn-primary">
+						회원가입<i class="fa fa-check spaceLeft"></i>
 					</button>
 				</div>
 			</form>

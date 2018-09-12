@@ -21,16 +21,39 @@ public class CommentInfoVO implements Serializable {
 	private String citext;
 
 	/** 댓글등록일. */
-	private String cicredat;
+	private String cicredate;
 
 	/** 댓글수정일. */
 	private String cimoddat;
 
-	/** 새 테이블. */
-	private UserInfoVO userInfo;
+	private Integer uinum;
+	
+	private Integer binum;
+	
+	private String uiname;
+	public Integer getUinum() {
+		return uinum;
+	}
 
-	/** 게시판. */
-	private BoardInfoVO boardInfo;
+	public void setUinum(Integer uinum) {
+		this.uinum = uinum;
+	}
+
+	public Integer getBinum() {
+		return binum;
+	}
+
+	public void setBinum(Integer binum) {
+		this.binum = binum;
+	}
+
+	public String getUiname() {
+		return uiname;
+	}
+
+	public void setUiname(String uiname) {
+		this.uiname = uiname;
+	}
 
 	/**
 	 * 생성자.
@@ -76,12 +99,12 @@ public class CommentInfoVO implements Serializable {
 		return this.citext;
 	}
 
-	public String getCicredat() {
-		return cicredat;
+	public String getCicredate() {
+		return cicredate;
 	}
 
-	public void setCicredat(String cicredat) {
-		this.cicredat = cicredat;
+	public void setCicredate(String cicredate) {
+		this.cicredate = cicredate;
 	}
 
 	public String getCimoddat() {
@@ -90,44 +113,6 @@ public class CommentInfoVO implements Serializable {
 
 	public void setCimoddat(String cimoddat) {
 		this.cimoddat = cimoddat;
-	}
-
-	/**
-	 * 새 테이블을 설정합니다..
-	 * 
-	 * @param userInfo
-	 *            새 테이블
-	 */
-	public void setUserInfo(UserInfoVO userInfo) {
-		this.userInfo = userInfo;
-	}
-
-	/**
-	 * 새 테이블을 가져옵니다..
-	 * 
-	 * @return 새 테이블
-	 */
-	public UserInfoVO getUserInfo() {
-		return this.userInfo;
-	}
-
-	/**
-	 * 게시판을 설정합니다..
-	 * 
-	 * @param boardInfo
-	 *            게시판
-	 */
-	public void setBoardInfo(BoardInfoVO boardInfo) {
-		this.boardInfo = boardInfo;
-	}
-
-	/**
-	 * 게시판을 가져옵니다..
-	 * 
-	 * @return 게시판
-	 */
-	public BoardInfoVO getBoardInfo() {
-		return this.boardInfo;
 	}
 
 	/**
@@ -168,8 +153,8 @@ public class CommentInfoVO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CommentInfoVO [cinum=" + cinum + ", citext=" + citext + ", cicredat=" + cicredat + ", cimoddat="
-				+ cimoddat + ", userInfo=" + userInfo + ", boardInfo=" + boardInfo + "]";
+		return "CommentInfoVO [cinum=" + cinum + ", citext=" + citext + ", cicredate=" + cicredate + ", cimoddat="
+				+ cimoddat + ", uinum=" + uinum + ", binum=" + binum + ", uiname=" + uiname + "]";
 	} 
 
 }

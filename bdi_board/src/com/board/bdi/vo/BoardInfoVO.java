@@ -1,9 +1,6 @@
 package com.board.bdi.vo;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 게시판 모델 클래스.
@@ -40,19 +37,24 @@ public class BoardInfoVO implements Serializable {
 	/** 게시판활성여부. */
 	private Byte biactive;
 
-	/** 새 테이블. */
-	private UserInfoVO userInfo;
-
-	/** 댓글정보 목록. */
-	private Set<CommentInfoVO> commentInfoSet;
-
-	/**
-	 * 생성자.
-	 */
-	public BoardInfoVO() {
-		this.commentInfoSet = new HashSet<CommentInfoVO>();
+	private Integer uinum;
+	
+	private String uiname;
+	
+	
+	
+	public String getUiname() {
+		return uiname;
 	}
-
+	public void setUiname(String uiname) {
+		this.uiname = uiname;
+	}
+	public void setUinum(Integer uinum) {
+		this.uinum = uinum;
+	}
+	public Integer getUinum() {
+		return uinum;
+	}
 	/**
 	 * 게시판번호을 설정합니다..
 	 * 
@@ -204,58 +206,14 @@ public class BoardInfoVO implements Serializable {
 	public Byte getBiactive() {
 		return this.biactive;
 	}
-
-	/**
-	 * 새 테이블을 설정합니다..
-	 * 
-	 * @param userInfo
-	 *            새 테이블
-	 */
-	public void setUserInfo(UserInfoVO userInfo) {
-		this.userInfo = userInfo;
-	}
-
-	/**
-	 * 새 테이블을 가져옵니다..
-	 * 
-	 * @return 새 테이블
-	 */
-	public UserInfoVO getUserInfo() {
-		return this.userInfo;
-	}
-
-	/**
-	 * 댓글정보 목록을 설정합니다..
-	 * 
-	 * @param commentInfoSet
-	 *            댓글정보 목록
-	 */
-	public void setCommentInfoSet(Set<CommentInfoVO> commentInfoSet) {
-		this.commentInfoSet = commentInfoSet;
-	}
-
-	/**
-	 * 댓글정보를 추가합니다..
-	 * 
-	 * @param commentInfo
-	 *            댓글정보
-	 */
-	public void addCommentInfo(CommentInfoVO commentInfo) {
-		this.commentInfoSet.add(commentInfo);
-	}
-
-	/**
-	 * 댓글정보 목록을 가져옵니다..
-	 * 
-	 * @return 댓글정보 목록
-	 */
-	public Set<CommentInfoVO> getCommentInfoSet() {
-		return this.commentInfoSet;
-	}
+	
+	
 
 	/**
 	 * {@inheritDoc}
 	 */
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -264,6 +222,12 @@ public class BoardInfoVO implements Serializable {
 		return result;
 	}
 
+	@Override
+	public String toString() {
+		return "BoardInfoVO [binum=" + binum + ", bititle=" + bititle + ", bitext=" + bitext + ", bifile=" + bifile
+				+ ", bicredate=" + bicredate + ", bimoddat=" + bimoddat + ", bicnt=" + bicnt + ", biactive=" + biactive
+				+ ", uinum=" + uinum + ", uiname=" + uiname + "]";
+	}
 	/**
 	 * {@inheritDoc}
 	 */

@@ -11,4 +11,9 @@ public interface BoardService {
 	public void updateBoard(HttpServletRequest request) throws SQLException, ServletException;
 	public void deleteBoard(HttpServletRequest request) throws SQLException, ServletException;
 	public void selectBoardList(HttpServletRequest request) throws SQLException, ServletException;
+	
+	public void selectCommentList(HttpServletRequest request) throws SQLException, ServletException;
+	public void selectComment(HttpServletRequest request) throws SQLException, ServletException;
+	public void insertComment(HttpServletRequest request) throws SQLException, ServletException;
+	public void deleteComment(HttpServletRequest request) throws SQLException, ServletException;
 }

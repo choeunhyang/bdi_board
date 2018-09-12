@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
 //				throw new ServletException("아이디 이미 있음.");
 			}
 		} catch (SQLException e) {
+			DBCon.rollback();
 			e.printStackTrace();
 		} finally {
 			DBCon.close();

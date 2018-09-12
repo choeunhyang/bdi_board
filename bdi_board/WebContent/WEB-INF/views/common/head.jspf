@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="/bs3/css/bootstrap-theme.css" />
 <script src="/bs3/js/jquery-3.3.1.js"></script>
 <script src="/bs3/js/bootstrap.js"></script>
+<style>
+	
+</style>
 </head>
 <script>
 	window.onload = function() {

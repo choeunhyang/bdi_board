@@ -13,7 +13,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 public class UploadFiles {
-	private static final String UPLOAD_PATH = "C:\\Users\\KOITT\\git\\bdi-mvc\\bdi_mvc\\WebContent";
+	private static final String UPLOAD_PATH = "C:\\Users\\KOITT\\git\\bdi_board\\bdi_board\\WebContent";
 	
 	public static Map<String,String> saveFileList(HttpServletRequest req) throws ServletException {
 		if(!ServletFileUpload.isMultipartContent(req)) {
@@ -37,7 +37,7 @@ public class UploadFiles {
 			for(FileItem fi : fList) {
 				if(!fi.isFormField()) {
 					String fEndName = fi.getName().substring(fi.getName().lastIndexOf("."));
-					String fileName = File.separator + "file" + File.separator + System.currentTimeMillis() + fEndName;
+					String fileName = File.separator + "files" + File.separator + System.currentTimeMillis() + fEndName;
 					String filePath = UPLOAD_PATH + File.separator + fileName;
 					File sFile = new File(filePath);
 					fi.write(sFile);
