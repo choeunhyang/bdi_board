@@ -14,6 +14,7 @@ import com.board.bdi.dao.impl.BoardDAOImpl;
 import com.board.bdi.service.BoardService;
 import com.board.bdi.vo.BoardInfoVO;
 import com.board.bdi.vo.CommentInfoVO;
+import com.board.bdi.vo.PageInfo;
 
 
 public class BoardServiceImpl implements BoardService {
@@ -73,6 +74,16 @@ public class BoardServiceImpl implements BoardService {
 		BoardInfoVO bi = ParseUtil.parseRequest(request, BoardInfoVO.class);
 		bdao.setCon(DBCon.getCon());
 		try {
+			/*PageInfo pi = new PageInfo();
+			pi.setTotalCnt(bdao.countBoardList());
+			pi.pageCount();
+			bi.setPi(pi);
+			request.setAttribute("pi", pi);*/
+			PageInfo pi = bi.getPi();
+			pi.setTotalCnt(bdao.countBoardList());
+			pi.pageCount();
+			request.setAttribute("pi", pi);
+//			request.setAttribute("pi", bi.getPi());
 			request.setAttribute("biList", bdao.selectBoardList(bi));
 		}catch(SQLException e) {
 			throw e;
